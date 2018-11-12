@@ -10,7 +10,7 @@ namespace BetterGameWithObj
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        public static SpriteBatch spriteBatch;
+        SpriteBatch spriteBatch;
         //Drawer backgroundDrawer;
         //Drawer dragonDrawer;
         //Vector2 movement;
@@ -43,11 +43,11 @@ namespace BetterGameWithObj
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            Globals.Init(Content);
-            Page page = new Page("Mario", "Walk");
-
-            //movement = new Vector2(10);
-            //backgroundDrawer = new Drawer(Content.Load<Texture2D>("background"), movement, null, Color.AliceBlue, 
+            Globals.Init(Content, spriteBatch);
+            new Page("Wizard", "wizardWalk");
+            new Drawer(Content.Load<Texture2D>("Wizard/wizardWalk"),
+                new Vector2(200), null, Color.White, 0, new Vector2(0), new Vector2(1),
+                SpriteEffects.None, 0);
 
             // TODO: use this.Content to load your game content here
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -12,19 +6,21 @@ namespace BetterGameWithObj
 {
     class Drawer
     {
+        #region Data
         Texture2D texture;
         protected Vector2 position;
         Rectangle? sourceRectangle;
         Color color;
         float rotation;
         Vector2 origin;
-        float scale;
+        Vector2 scale;
         SpriteEffects effects;
-        float layerDepth;
+        float layerDepth; 
+        #endregion
 
         public Drawer(Texture2D texture, Vector2 position,
             Rectangle? sourceRectangle, Color color,
-            float rotation, Vector2 origin, float scale,
+            float rotation, Vector2 origin, Vector2 scale,
             SpriteEffects effects, float layerDepth)
         {
 
@@ -42,7 +38,7 @@ namespace BetterGameWithObj
 
         public void Draw()
         {
-            Game1.spriteBatch.Draw(texture, position, sourceRectangle, color,
+            Globals.spriteBatch.Draw(texture, position, sourceRectangle, color,
                 rotation, origin, scale, effects, layerDepth);
         }
     }
