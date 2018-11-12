@@ -11,6 +11,9 @@ namespace BetterGameWithObj
     {
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
+        Drawer backgroundDrawer;
+        Drawer dragonDrawer;
+        Vector2 movement;
 
         public Game1()
         {
@@ -39,6 +42,9 @@ namespace BetterGameWithObj
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            movement = new Vector2(10);
+            //backgroundDrawer = new Drawer(Content.Load<Texture2D>("background"), movement, null, Color.AliceBlue, 
 
             // TODO: use this.Content to load your game content here
         }
