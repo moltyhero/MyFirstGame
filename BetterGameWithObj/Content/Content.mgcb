@@ -23,7 +23,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:bg.jpg
+/build:bg.jpg;Background.jpg
 
 #begin Purple-dragon.png
 /importer:TextureImporter
@@ -35,5 +35,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Purple-dragon.png
+/build:Purple-dragon.png;Dragon.png
 

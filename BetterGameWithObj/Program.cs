@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BetterGameWithObj
+namespace Game1
 {
 #if WINDOWS || LINUX
     /// <summary>
