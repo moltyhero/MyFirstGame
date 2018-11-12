@@ -13,7 +13,7 @@ namespace BetterGameWithObj
     class Drawer
     {
         Texture2D texture;
-        Vector2 position;
+        protected Vector2 position;
         Rectangle? sourceRectangle;
         Color color;
         float rotation;
