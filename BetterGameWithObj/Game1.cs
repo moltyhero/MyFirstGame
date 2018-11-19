@@ -48,6 +48,10 @@ namespace BetterGameWithObj
             new Drawer(Content.Load<Texture2D>("Wizard/wizardWalk"),
                 new Vector2(200), null, Color.White, 0, new Vector2(0), new Vector2(1),
                 SpriteEffects.None, 0);
+            new Animation(Content.Load<Texture2D>("Wizard/wizardWalk"),
+                new Vector2(200), null, Color.White, 0, new Vector2(0), new Vector2(1),
+                SpriteEffects.None, 0);
+
 
             // TODO: use this.Content to load your game content here
         }

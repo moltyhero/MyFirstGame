@@ -17,7 +17,7 @@ namespace BetterGameWithObj
         {
           
         }
-        public void update()
+        public void Update()
         {
             position.X += 10;
             
