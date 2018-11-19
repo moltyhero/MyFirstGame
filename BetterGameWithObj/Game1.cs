@@ -11,6 +11,7 @@ namespace BetterGameWithObj
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Animation animation;
         //Drawer backgroundDrawer;
         //Drawer dragonDrawer;
         //Vector2 movement;
@@ -44,14 +45,8 @@ namespace BetterGameWithObj
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             Globals.Init(Content, spriteBatch);
-            new Page("Wizard", "wizardWalk");
-            new Drawer(Content.Load<Texture2D>("Wizard/wizardWalk"),
-                new Vector2(200), null, Color.White, 0, new Vector2(0), new Vector2(1),
-                SpriteEffects.None, 0);
-            new Animation(Content.Load<Texture2D>("Wizard/wizardWalk"),
-                new Vector2(200), null, Color.White, 0, new Vector2(0), new Vector2(1),
-                SpriteEffects.None, 0);
 
+            animation = new Animation(Characters.Wizard, States.walk, new Vector2(300), new Vector2(1.4f), Color.White);
 
             // TODO: use this.Content to load your game content here
         }
@@ -88,7 +83,10 @@ namespace BetterGameWithObj
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            
+            animation.Animate();
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

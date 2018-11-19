@@ -35,7 +35,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Wizard/wizardJump.png
+/build:Wizard/wizardJump.png;Wizard/jump.png
 
 #begin Wizard/wizardWalk.png
 /importer:TextureImporter
@@ -47,5 +47,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Wizard/wizardWalk.png
+/build:Wizard/wizardWalk.png;Wizard/walk.png
 

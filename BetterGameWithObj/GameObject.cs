@@ -6,7 +6,7 @@ namespace BetterGameWithObj
 {
     class GameObject : Animation
     {
-        public GameObject(Texture2D texture, Vector2 position,
+        /*public GameObject(Texture2D texture, Vector2 position,
             Rectangle? sourceRectangle, Color color,
             float rotation, Vector2 origin, Vector2 scale,
             SpriteEffects effects, float layerDepth) :
@@ -16,7 +16,7 @@ namespace BetterGameWithObj
              effects, layerDepth)
         {
           
-        }
+        }*/
         public void Update()
         {
             position.X += 10;

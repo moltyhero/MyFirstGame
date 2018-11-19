@@ -5,6 +5,15 @@ using Microsoft.Xna.Framework.Content;
 
 namespace BetterGameWithObj
 {
+    enum States
+    {
+        walk, run
+    }
+    enum Characters
+    {
+        Wizard
+    }
+
     static class Globals
     {
         public static ContentManager contentManager;
