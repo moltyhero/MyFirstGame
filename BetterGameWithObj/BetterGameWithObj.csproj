@@ -42,9 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="Dictionary.cs" />
     <Compile Include="Drawer.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="GameObject.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="Program.cs" />

@@ -7,7 +7,7 @@ namespace BetterGameWithObj
     class Drawer
     {
         #region Data
-        Texture2D texture;
+        public Texture2D Texture { get; set; }
         protected Vector2 position;
         public Rectangle? SourceRectangle { get; set; }
         Color color;
@@ -24,7 +24,7 @@ namespace BetterGameWithObj
             SpriteEffects effects, float layerDepth)
         {
 
-            this.texture = texture;
+            this.Texture = texture;
             this.position = position;
             this.SourceRectangle = sourceRectangle;
             this.color = color;
@@ -52,7 +52,7 @@ namespace BetterGameWithObj
 
         public void Draw()
         {
-            Globals.spriteBatch.Draw(texture, position, SourceRectangle, color,
+            Globals.spriteBatch.Draw(Texture, position, SourceRectangle, color,
                 rotation, Origin, scale, effects, layerDepth);
         }
     }

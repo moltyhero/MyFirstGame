@@ -6,9 +6,11 @@ namespace BetterGameWithObj
 {
     class Animation : Drawer
     {
+        #region Varriables
         Page page;
         int frame; // Defines which rectangle will be taken
-        int paste = 0; // Defines the animation replace speed
+        int paste = 0; // Defines the animation replace speed 
+        #endregion
 
         public Animation(Characters character, States state,
             Vector2 position, Vector2 scale, Color color,
@@ -23,6 +25,7 @@ namespace BetterGameWithObj
         {
             this.SourceRectangle = page.rectangles[frame];
             this.Origin = page.originsList[frame];
+            this.Texture = page.Texture;
             if (paste++ % 10 == 0) // Here you can change the speed of the animation
             {
                 this.frame++;

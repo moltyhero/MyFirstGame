@@ -45,8 +45,12 @@ namespace BetterGameWithObj
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             Globals.Init(Content, spriteBatch);
+            Dictionary.init();
+
 
             animation = new Animation(Characters.Wizard, States.walk, new Vector2(300), new Vector2(1.4f), Color.White);
+
+            
 
             // TODO: use this.Content to load your game content here
         }
