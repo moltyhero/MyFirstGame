@@ -11,7 +11,7 @@ namespace BetterGameWithObj
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Animation animation;
+        GameObject animation;
         //Drawer backgroundDrawer;
         //Drawer dragonDrawer;
         //Vector2 movement;
@@ -48,7 +48,7 @@ namespace BetterGameWithObj
             Dictionary.init();
 
 
-            animation = new Animation(Characters.Wizard, States.walk, new Vector2(300), new Vector2(1.4f), Color.White);
+            animation = new GameObject(Characters.Wizard, States.walk, new Vector2(300), new Vector2(1.4f), Color.White);
 
             
 
@@ -71,10 +71,13 @@ namespace BetterGameWithObj
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //    Exit();
 
             // TODO: Add your update logic here
+
+            Globals.Update();
+            animation.Update();
 
             base.Update(gameTime);
         }

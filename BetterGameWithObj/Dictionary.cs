@@ -16,16 +16,20 @@ namespace BetterGameWithObj
         {
             foreach (Characters character in Enum.GetValues(typeof(Characters)))
             {
+                Dictionary<States, Page> characterDict = new Dictionary<States, Page>();
                 foreach (States state in Enum.GetValues(typeof(States)))
                 {
                     string path = Directory.GetCurrentDirectory() + @"\Content\" + character.ToString() + @"\" + state.ToString() + @".xnb";
 
                     if (File.Exists(path))
                     {
-                        dic[character].Add(state, new Page(character, state));
+                        Page p = new Page(character, state);
+                        characterDict.Add(state, p);
                     }
                 }
+                dic.Add(character, characterDict);
             }
+            
         }
     }
 }
