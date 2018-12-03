@@ -12,7 +12,7 @@ namespace BetterGameWithObj
         public static Dictionary<Characters, Dictionary<States, Page>> dic = 
             new Dictionary<Characters, Dictionary<States, Page>>();
 
-        public static void init()
+        public static void Init()
         {
             foreach (Characters character in Enum.GetValues(typeof(Characters)))
             {
