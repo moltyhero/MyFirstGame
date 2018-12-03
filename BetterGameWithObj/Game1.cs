@@ -47,8 +47,7 @@ namespace BetterGameWithObj
             Globals.Init(Content, spriteBatch);
             Dictionary.init();
 
-
-            animation = new GameObject(Characters.Wizard, States.walk, new Vector2(300), new Vector2(1.4f), Color.White);
+            animation = new GameObject(new UserKeys(Keys.A, Keys.D, Keys.W, Keys.S), Characters.Wizard, States.walk, new Vector2(300), new Vector2(1.4f), Color.White);
 
             
 
