@@ -1,13 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace BetterGameWithObj
 {
     class Drawer
     {
         #region Data
-        public Texture2D Texture { get; set; }
+        //public Texture2D Texture { get; set; }
+        public List<Texture2D> Textures { get; set; }
+        protected int currentTexture = 0;
         protected Vector2 position;
         public Rectangle? SourceRectangle { get; set; }
         Color color;
@@ -18,13 +21,13 @@ namespace BetterGameWithObj
         float layerDepth; 
         #endregion
 
-        public Drawer(Texture2D texture, Vector2 position,
+        public Drawer(List<Texture2D> textures, Vector2 position,
             Rectangle? sourceRectangle, Color color,
             float rotation, Vector2 origin, Vector2 scale,
             SpriteEffects effects, float layerDepth)
         {
 
-            this.Texture = texture;
+            this.Textures = textures;
             this.position = position;
             this.SourceRectangle = sourceRectangle;
             this.color = color;
@@ -52,7 +55,7 @@ namespace BetterGameWithObj
 
         public void Draw()
         {
-            Globals.spriteBatch.Draw(Texture, position, SourceRectangle, color,
+            Globals.spriteBatch.Draw(Textures[currentTexture], position, SourceRectangle, color,
                 rotation, Origin, scale, effects, layerDepth);
         }
     }

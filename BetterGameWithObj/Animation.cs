@@ -30,11 +30,13 @@ namespace BetterGameWithObj
             this.page = Dictionary.dic[character][state];
             this.SourceRectangle = page.rectangles[frame];
             this.Origin = page.originsList[frame];
-            this.Texture = page.Texture;
-            if (paste++ % 15 == 0) // Here you can change the speed of the animation
+            this.Textures = page.Textures;
+            if (paste++ % 10 == 0) // Here you can change the speed of the animation
             {
                 this.frame++;
                 this.frame %= page.originsList.Count;
+                this.currentTexture++;
+                this.currentTexture %= page.originsList.Count;
             }
             
             base.Draw();
