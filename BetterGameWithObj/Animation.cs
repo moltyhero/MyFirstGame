@@ -11,7 +11,7 @@ namespace BetterGameWithObj
         int frame; // Defines which rectangle will be taken
         int paste = 0; // Defines the animation replace speed 
         Characters character;
-        States state;
+        protected States state;
         #endregion
 
         public Animation(Characters character, States state,
@@ -31,7 +31,7 @@ namespace BetterGameWithObj
             this.SourceRectangle = page.rectangles[frame];
             this.Origin = page.originsList[frame];
             this.Texture = page.Texture;
-            if (paste++ % 10 == 0) // Here you can change the speed of the animation
+            if (paste++ % 15 == 0) // Here you can change the speed of the animation
             {
                 this.frame++;
                 this.frame %= page.originsList.Count;

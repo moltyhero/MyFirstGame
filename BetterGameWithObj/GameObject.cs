@@ -12,7 +12,6 @@ namespace BetterGameWithObj
         int frame; // Defines which rectangle will be taken
         int paste = 0; // Defines the animation replace speed 
         Characters character;
-        States state;
         #endregion
 
         public GameObject(BaseKeys keys, Characters character, States state,
@@ -25,18 +24,40 @@ namespace BetterGameWithObj
 
         public void Update()
         {
-            if (Globals.keyboardState.IsKeyDown(Keys.Right))
+            /*if (Globals.keyboardState.IsKeyDown(Keys.))
             {
-            }
+            }*/
+
 
             if (keys.IsLeft())
             {
+                if (this.state != States.walk)
+                {
+                    this.state = States.walk;
+                }
+                    
+                if (this.effects != SpriteEffects.FlipHorizontally)
+                {
+                    this.effects = SpriteEffects.FlipHorizontally;
+                }
+                    
                 this.position -= Vector2.UnitX * 5;
             }
             else if (keys.IsRight())
             {
+                if (this.state != States.walk)
+                {
+                    this.state = States.walk;
+                }
+                    
+                if (this.effects == SpriteEffects.FlipHorizontally)
+                {
+                    this.effects = SpriteEffects.None;
+                }
+                    
                 this.position += Vector2.UnitX * 5;
             }
+            else this.state = States.idle;
         }
     }
 }

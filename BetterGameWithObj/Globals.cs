@@ -8,7 +8,7 @@ namespace BetterGameWithObj
 {
     enum States
     {
-        walk, jump
+        walk, jump, idle
     }
     enum Characters
     {

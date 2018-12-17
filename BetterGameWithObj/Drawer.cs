@@ -14,7 +14,7 @@ namespace BetterGameWithObj
         float rotation;
         public Vector2 Origin { get; set; }
         Vector2 scale;
-        SpriteEffects effects;
+        protected SpriteEffects effects;
         float layerDepth; 
         #endregion
 
