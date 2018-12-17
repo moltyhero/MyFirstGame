@@ -8,7 +8,6 @@ namespace BetterGameWithObj
     {
         #region Varriables
         Page page;
-        int frame; // Defines which rectangle will be taken
         int paste = 0; // Defines the animation replace speed 
         Characters character;
         protected States state;
@@ -19,7 +18,6 @@ namespace BetterGameWithObj
             float rotation = 0, SpriteEffects effects = SpriteEffects.None, float layerDepth = 0)
             : base(position, scale, color, rotation, effects, layerDepth)
         {
-            //this.page = new Page(character, state);
             this.character = character;
             this.state = state;
             this.frame = 0;
@@ -35,8 +33,6 @@ namespace BetterGameWithObj
             {
                 this.frame++;
                 this.frame %= page.originsList.Count;
-                this.currentTexture++;
-                this.currentTexture %= page.originsList.Count;
             }
             
             base.Draw();

@@ -8,9 +8,7 @@ namespace BetterGameWithObj
     class Drawer
     {
         #region Data
-        //public Texture2D Texture { get; set; }
         public List<Texture2D> Textures { get; set; }
-        protected int currentTexture = 0;
         protected Vector2 position;
         public Rectangle? SourceRectangle { get; set; }
         Color color;
@@ -18,7 +16,8 @@ namespace BetterGameWithObj
         public Vector2 Origin { get; set; }
         Vector2 scale;
         protected SpriteEffects effects;
-        float layerDepth; 
+        float layerDepth;
+        protected int frame; // Defines which rectangle will be taken
         #endregion
 
         public Drawer(List<Texture2D> textures, Vector2 position,
@@ -36,6 +35,7 @@ namespace BetterGameWithObj
             this.scale = scale;
             this.effects = effects;
             this.layerDepth = layerDepth;
+            frame = 0;
 
         }
 
@@ -55,7 +55,7 @@ namespace BetterGameWithObj
 
         public void Draw()
         {
-            Globals.spriteBatch.Draw(Textures[currentTexture], position, SourceRectangle, color,
+            Globals.spriteBatch.Draw(Textures[frame], position, SourceRectangle, color,
                 rotation, Origin, scale, effects, layerDepth);
         }
     }
