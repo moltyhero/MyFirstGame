@@ -14,7 +14,8 @@ namespace BetterGameWithObj
         float maxForwardSpeed;
         float maxReverseSpeed;
         float accel;
-        float currentSpeed;
+        private float currentSpeed;
+        public float CurrentSpeed { get => currentSpeed; private set => currentSpeed = value; }
         float friction;
 
         public Engine(float maxForwardSpeed, float maxReverseSpeed, float accelerate, float currentSpeed, float friction)
@@ -22,26 +23,28 @@ namespace BetterGameWithObj
             this.maxForwardSpeed = maxForwardSpeed;
             this.maxReverseSpeed = maxReverseSpeed;
             this.accel = accelerate;
-            this.currentSpeed = currentSpeed;
+            this.CurrentSpeed = currentSpeed;
             this.friction = friction;
         }
+
+        
 
         public void accelerate(bool forward)
         {
             if (forward)
             {
-                currentSpeed += accel;
-                if (currentSpeed > maxForwardSpeed)
+                CurrentSpeed += accel;
+                if (CurrentSpeed > maxForwardSpeed)
                 {
-                    currentSpeed = maxForwardSpeed;
+                    CurrentSpeed = maxForwardSpeed;
                 }
             }
             else
             {
-                currentSpeed -= accel;
-                if (currentSpeed < maxReverseSpeed)
+                CurrentSpeed -= accel;
+                if (CurrentSpeed < maxReverseSpeed)
                 {
-                    currentSpeed = maxReverseSpeed;
+                    CurrentSpeed = maxReverseSpeed;
                 }
             }
 
@@ -69,6 +72,21 @@ namespace BetterGameWithObj
             this.roadFriction = roadFriction;
             this.keys = keys;
             this.engine = engine;
+            Game1.event_update += Update;
+        }
+
+        public void Update()
+        {
+            drot = 0;
+            if (keys.IsRight() && Math.Abs(engine.CurrentSpeed) > 5f)
+            {
+                drot += 0.035f * engine.CurrentSpeed < 0 ? -1 : 1;
+            }
+
+            if (keys.IsLeft() && Math.Abs(engine.CurrentSpeed) > 5f)
+            {
+                drot -= 0.035f * engine.CurrentSpeed < 0 ? -1 : 1;
+            }
         }
     }
 }

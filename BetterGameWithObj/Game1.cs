@@ -85,8 +85,13 @@ namespace BetterGameWithObj
 
             // TODO: Add your update logic here
 
-            Globals.Update();
+            //Globals.Update();
             animation.Update();
+
+            if (event_update != null)
+            {
+                event_update();
+            }
 
             base.Update(gameTime);
         }
@@ -105,7 +110,7 @@ namespace BetterGameWithObj
                 event_draw();
             }
 
-            animation.Animate();
+            //animation.Animate();
             Globals.spriteBatch.End();
 
             base.Draw(gameTime);

@@ -21,6 +21,7 @@ namespace BetterGameWithObj
             this.character = character;
             this.state = state;
             this.frame = 0;
+            Game1.event_draw += Animate;
         }
 
         public void Animate()

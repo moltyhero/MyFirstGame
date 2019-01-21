@@ -8,10 +8,10 @@ namespace BetterGameWithObj
     {
         BaseKeys keys;
         #region Varriables
-        Page page;
-        int frame; // Defines which rectangle will be taken
-        int paste = 0; // Defines the animation replace speed 
-        Characters character;
+        // Page page;
+        // int frame; // Defines which rectangle will be taken
+        // int paste = 0; // Defines the animation replace speed 
+        // Characters character;
         #endregion
 
         public GameObject(BaseKeys keys, Characters character, States state,
@@ -20,6 +20,7 @@ namespace BetterGameWithObj
             : base(character, state, position, scale, color, rotation, effects, layerDepth)
         {
             this.keys = keys;
+            Game1.event_update += Update;
         }
 
         public void Update()
