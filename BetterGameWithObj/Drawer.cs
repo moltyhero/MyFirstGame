@@ -5,15 +5,17 @@ using System.Collections.Generic;
 
 namespace BetterGameWithObj
 {
-    class Drawer
+    class Drawer : IFocus
     {
         #region Data
         public List<Texture2D> Textures { get; set; }
-        protected Vector2 position;
+        private Vector2 position;
         public Rectangle? SourceRectangle { get; set; }
         Color color;
-        float rotation;
+        protected float rotation;
         public Vector2 Origin { get; set; }
+        public Vector2 Position { get => position; set => position = value; }
+
         Vector2 scale;
         protected SpriteEffects effects;
         float layerDepth;
@@ -28,7 +30,7 @@ namespace BetterGameWithObj
         {
 
             this.Textures = textures;
-            this.position = position;
+            this.Position = position;
             this.SourceRectangle = sourceRectangle;
             this.color = color;
             this.rotation = rotation;
@@ -45,7 +47,7 @@ namespace BetterGameWithObj
             SpriteEffects effects = SpriteEffects.None, float layerDepth = 0)
         {
 
-            this.position = position;
+            this.Position = position;
             this.color = color;
             this.rotation = rotation;
             this.scale = scale;
@@ -57,7 +59,7 @@ namespace BetterGameWithObj
 
         public void Draw()
         {
-            Globals.spriteBatch.Draw(Textures[frame], position, SourceRectangle, color,
+            Globals.spriteBatch.Draw(Textures[frame], Position, SourceRectangle, color,
                 rotation, Origin, scale, effects, layerDepth);
         }
     }

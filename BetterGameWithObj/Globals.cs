@@ -62,5 +62,10 @@ namespace BetterGameWithObj
             }
 
         }
+
+        public static Vector2 rotXVector(float rotation)
+        {
+            return Vector2.Transform(Vector2.UnitX, Matrix.CreateRotationZ(rotation));
+        }
     }
 }

@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Content;
-using System.IO;
 
 namespace BetterGameWithObj
 {
@@ -25,11 +22,15 @@ namespace BetterGameWithObj
             this.accel = accelerate;
             this.CurrentSpeed = currentSpeed;
             this.friction = friction;
+            Game1.event_update += Update;
         }
 
-        
+        void Update()
+        {
+            currentSpeed *= friction;
+        }
 
-        public void accelerate(bool forward)
+        public void Accelerate(bool forward)
         {
             if (forward)
             {
@@ -61,11 +62,12 @@ namespace BetterGameWithObj
         Engine engine;
 
 
-        public Car(Texture2D tex, Vector2 position, Vector2 scale, Color color,
+        public Car(Vector2 origin, Texture2D tex, Vector2 position, Vector2 scale, Color color,
             float roadFriction, BaseKeys keys, Engine engine,
             float rotation = 0)
                 : base(position, scale, color)
         {
+            this.Origin = origin;
             this.Textures = new List<Texture2D>();
             this.Textures.Add(tex);
             this.velocity = Vector2.Zero;
@@ -78,15 +80,33 @@ namespace BetterGameWithObj
         public void Update()
         {
             drot = 0;
-            if (keys.IsRight() && Math.Abs(engine.CurrentSpeed) > 5f)
+            if (Math.Abs(engine.CurrentSpeed) > 1f)
             {
-                drot += 0.035f * engine.CurrentSpeed < 0 ? -1 : 1;
+                if (keys.IsRight())
+                {
+                    drot += 0.035f * engine.CurrentSpeed < 0 ? -1 : 1;
+                }
+
+                if (keys.IsLeft())
+                {
+                    drot -= 0.035f * engine.CurrentSpeed < 0 ? -1 : 1;
+                }
+            }
+            if (keys.IsUp())
+            {
+                engine.Accelerate(true);
+            }
+            else if (keys.IsDown())
+            {
+                engine.Accelerate(false);
             }
 
-            if (keys.IsLeft() && Math.Abs(engine.CurrentSpeed) > 5f)
-            {
-                drot -= 0.035f * engine.CurrentSpeed < 0 ? -1 : 1;
-            }
+            rotation += drot;
+            Vector2 direction = Globals.rotXVector(rotation);
+            velocity = direction * engine.CurrentSpeed;
+            Position += velocity;
+            velocity *= roadFriction;
+
         }
     }
 }

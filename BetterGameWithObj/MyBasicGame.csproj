@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="Camera.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="Dictionary.cs" />
     <Compile Include="Drawer.cs" />

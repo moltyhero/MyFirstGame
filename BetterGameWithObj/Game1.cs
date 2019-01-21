@@ -13,7 +13,7 @@ namespace BetterGameWithObj
         //SpriteBatch spriteBatch;
         GameObject animation;
         Car car;
-        //Drawer backgroundDrawer;
+        Drawer backgroundDrawer;
         //Drawer dragonDrawer;
         //Vector2 movement;
         public static event DlgUpdate event_update;
@@ -55,10 +55,12 @@ namespace BetterGameWithObj
             animation = new GameObject(new UserKeys(Keys.A, Keys.D, Keys.W, Keys.S),
                 Characters.Wizard, States.idle, new Vector2(300), new Vector2(0.4f), Color.White);
 
-            car = new Car(Content.Load<Texture2D>("Car/car"), new Vector2(300), new Vector2(0.3f), Color.White, 0.9f,
+            car = new Car(new Vector2(1200, 1189) ,Content.Load<Texture2D>("Car/car"), new Vector2(300), new Vector2(0.3f), Color.White, 0.9f,
                 new UserKeys(Keys.Left, Keys.Right, Keys.Up, Keys.Down),
-                new Engine(214f, 100f, 17f, 0, 0.9f));
+                new Engine(70f, 100f, 5f, 0, 0.9f));
 
+            // TODO: enter good parameters
+            //backgroundDrawer = new Drawer(Globals.contentManager.Load<Texture2D>("track"), Vector2.Zero, null, Color.White, 
             
 
             // TODO: use this.Content to load your game content here
@@ -104,7 +106,8 @@ namespace BetterGameWithObj
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            Globals.spriteBatch.Begin();
+            // Globals.spriteBatch.Begin();
+            //Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, , , , , cam)
             if (event_draw != null)
             {
                 event_draw();

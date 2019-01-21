@@ -42,7 +42,7 @@ namespace BetterGameWithObj
                     this.effects = SpriteEffects.FlipHorizontally;
                 }
                     
-                this.position -= Vector2.UnitX * 5;
+                this.Position -= Vector2.UnitX * 5;
             }
             else if (keys.IsRight())
             {
@@ -56,7 +56,7 @@ namespace BetterGameWithObj
                     this.effects = SpriteEffects.None;
                 }
                     
-                this.position += Vector2.UnitX * 5;
+                this.Position += Vector2.UnitX * 5;
             }
             else this.state = States.idle;
         }
