@@ -22,8 +22,9 @@ namespace BetterGameWithObj
 
         public Drawer(List<Texture2D> textures, Vector2 position,
             Rectangle? sourceRectangle, Color color,
-            float rotation, Vector2 origin, Vector2 scale,
-            SpriteEffects effects, float layerDepth)
+            Vector2 origin, Vector2 scale,
+            SpriteEffects effects, float layerDepth,
+            float rotation = 0)
         {
 
             this.Textures = textures;
@@ -50,6 +51,7 @@ namespace BetterGameWithObj
             this.scale = scale;
             this.effects = effects;
             this.layerDepth = layerDepth;
+            //Game1.event_draw += Draw;
 
         }
 

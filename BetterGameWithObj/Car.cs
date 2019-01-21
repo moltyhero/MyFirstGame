@@ -63,6 +63,8 @@ namespace BetterGameWithObj
             float rotation = 0)
                 : base(position, scale, color)
         {
+            this.Textures = new List<Texture2D>();
+            this.Textures.Add(tex);
             this.velocity = Vector2.Zero;
             this.roadFriction = roadFriction;
             this.keys = keys;
