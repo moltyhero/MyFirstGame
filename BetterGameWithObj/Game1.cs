@@ -53,6 +53,9 @@ namespace BetterGameWithObj
 
             animation = new GameObject(new UserKeys(Keys.A, Keys.D, Keys.W, Keys.S), Characters.Wizard, States.idle, new Vector2(300), new Vector2(0.4f), Color.White);
 
+            //Car = new Car(null, null, null, null, 0.9f,
+            //    new UserKeys(Keys.Left, Keys.Right, Keys.Up, Keys.Down),
+            //    new Engine() 
             
 
             // TODO: use this.Content to load your game content here

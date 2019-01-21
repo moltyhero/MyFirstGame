@@ -13,7 +13,7 @@ namespace BetterGameWithObj
     {
         float maxForwardSpeed;
         float maxReverseSpeed;
-        float accelerate;
+        float accel;
         float currentSpeed;
         float friction;
 
@@ -21,15 +21,52 @@ namespace BetterGameWithObj
         {
             this.maxForwardSpeed = maxForwardSpeed;
             this.maxReverseSpeed = maxReverseSpeed;
-            this.accelerate = accelerate;
+            this.accel = accelerate;
             this.currentSpeed = currentSpeed;
             this.friction = friction;
+        }
+
+        public void accelerate(bool forward)
+        {
+            if (forward)
+            {
+                currentSpeed += accel;
+                if (currentSpeed > maxForwardSpeed)
+                {
+                    currentSpeed = maxForwardSpeed;
+                }
+            }
+            else
+            {
+                currentSpeed -= accel;
+                if (currentSpeed < maxReverseSpeed)
+                {
+                    currentSpeed = maxReverseSpeed;
+                }
+            }
+
         }
     }
 
     
-    class Car
+    class Car : Drawer
     {
+        float drot;
+        Vector2 velocity;
+        float roadFriction;
+        BaseKeys keys;
+        Engine engine;
 
+
+        public Car(Texture2D tex, Vector2 position, Vector2 scale, Color color,
+            float roadFriction, BaseKeys keys, Engine engine,
+            float rotation = 0)
+                : base(position, scale, color)
+        {
+            this.velocity = Vector2.Zero;
+            this.roadFriction = roadFriction;
+            this.keys = keys;
+            this.engine = engine;
+        }
     }
 }
