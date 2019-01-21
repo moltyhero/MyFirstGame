@@ -8,7 +8,7 @@ namespace BetterGameWithObj
     {
         #region Varriables
         Page page;
-        int paste = 0; // Defines the animation replace speed 
+        int paste = 1; // Defines the animation replace speed 
         Characters character;
         protected States state;
         #endregion

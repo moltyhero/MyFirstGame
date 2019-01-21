@@ -10,11 +10,13 @@ namespace BetterGameWithObj
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        //SpriteBatch spriteBatch;
         GameObject animation;
         //Drawer backgroundDrawer;
         //Drawer dragonDrawer;
         //Vector2 movement;
+        public static event DlgUpdate event_update;
+        public static event DlgDraw event_draw;
 
         public Game1()
         {
@@ -31,6 +33,8 @@ namespace BetterGameWithObj
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            //graphics.PreferredBackBufferWidth = 1200;
+            //graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -42,9 +46,9 @@ namespace BetterGameWithObj
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            Globals.Init(Content, spriteBatch);
+            Globals.Init(Content);
             Dictionary.Init();
 
             animation = new GameObject(new UserKeys(Keys.A, Keys.D, Keys.W, Keys.S), Characters.Wizard, States.idle, new Vector2(300), new Vector2(0.4f), Color.White);
@@ -89,10 +93,14 @@ namespace BetterGameWithObj
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
-            
+            Globals.spriteBatch.Begin();
+            if (event_draw != null)
+            {
+                event_draw();
+            }
+
             animation.Animate();
-            spriteBatch.End();
+            Globals.spriteBatch.End();
 
             base.Draw(gameTime);
         }
