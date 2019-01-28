@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace BetterGameWithObj
+namespace Second
 {
     /// <summary>
     /// This is the main type for your game.
@@ -10,15 +10,7 @@ namespace BetterGameWithObj
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        //SpriteBatch spriteBatch;
-        GameObject animation;
-        Car car;
-        Camera camera;
-        Drawer backgroundDrawer;
-        //Drawer dragonDrawer;
-        //Vector2 movement;
-        public static event DlgUpdate event_update;
-        public static event DlgDraw event_draw;
+        SpriteBatch spriteBatch;
 
         public Game1()
         {
@@ -35,8 +27,6 @@ namespace BetterGameWithObj
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            //graphics.PreferredBackBufferWidth = 1200;
-            //graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -48,23 +38,7 @@ namespace BetterGameWithObj
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            Globals.Init(Content);
-            Dictionary.Init();
-
-            animation = new GameObject(new UserKeys(Keys.A, Keys.D, Keys.W, Keys.S),
-                Characters.Wizard, States.idle, new Vector2(300), new Vector2(0.4f), Color.White);
-
-            car = new Car(new Vector2(1200, 1189) ,Content.Load<Texture2D>("Car/car"), new Vector2(300), new Vector2(0.3f), Color.White, 0.9f,
-                new UserKeys(Keys.Left, Keys.Right, Keys.Up, Keys.Down),
-                new Engine(70f, 100f, 5f, 0, 0.9f));
-
-            camera = new Camera(car);
-
-            // TODO: enter good parameters
-            //backgroundDrawer = new Drawer(Globals.contentManager.Load<Texture2D>("track"), Vector2.Zero, null, Color.White, 
-
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
         }
@@ -85,18 +59,10 @@ namespace BetterGameWithObj
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //    Exit();
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
 
             // TODO: Add your update logic here
-
-            //Globals.Update();
-            animation.Update();
-
-            if (event_update != null)
-            {
-                event_update();
-            }
 
             base.Update(gameTime);
         }
@@ -109,16 +75,7 @@ namespace BetterGameWithObj
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // Globals.spriteBatch.Begin();
-            Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null,
-                null, camera.mat);
-            if (event_draw != null)
-            {
-                event_draw();
-            }
-
-            //animation.Animate();
-            Globals.spriteBatch.End();
+            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }

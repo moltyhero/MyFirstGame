@@ -5,16 +5,40 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBasicGame", "BetterGameWithObj\MyBasicGame.csproj", "{44292590-F76D-45AD-8737-FCC768EA5283}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Second", "Second\Second.csproj", "{CF021EDD-49FE-4E98-B880-045CF10DD959}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44292590-F76D-45AD-8737-FCC768EA5283}.Debug|ARM.ActiveCfg = Debug|x86
+		{44292590-F76D-45AD-8737-FCC768EA5283}.Debug|ARM64.ActiveCfg = Debug|x86
+		{44292590-F76D-45AD-8737-FCC768EA5283}.Debug|x64.ActiveCfg = Debug|x86
 		{44292590-F76D-45AD-8737-FCC768EA5283}.Debug|x86.ActiveCfg = Debug|x86
 		{44292590-F76D-45AD-8737-FCC768EA5283}.Debug|x86.Build.0 = Debug|x86
+		{44292590-F76D-45AD-8737-FCC768EA5283}.Release|ARM.ActiveCfg = Release|x86
+		{44292590-F76D-45AD-8737-FCC768EA5283}.Release|ARM64.ActiveCfg = Release|x86
+		{44292590-F76D-45AD-8737-FCC768EA5283}.Release|x64.ActiveCfg = Release|x86
 		{44292590-F76D-45AD-8737-FCC768EA5283}.Release|x86.ActiveCfg = Release|x86
 		{44292590-F76D-45AD-8737-FCC768EA5283}.Release|x86.Build.0 = Release|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Debug|ARM.ActiveCfg = Debug|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Debug|ARM64.ActiveCfg = Debug|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Debug|x64.ActiveCfg = Debug|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Debug|x86.ActiveCfg = Debug|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Debug|x86.Build.0 = Debug|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Release|ARM.ActiveCfg = Release|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Release|ARM64.ActiveCfg = Release|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Release|x64.ActiveCfg = Release|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Release|x86.ActiveCfg = Release|x86
+		{CF021EDD-49FE-4E98-B880-045CF10DD959}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
